@@ -1,5 +1,3 @@
-# Projeto-ASPNET-CRUD-e-Modal
-
 <h1> Projeto de Treino com ASPNET CORE no padrão MVC </h1>
 
 <p>Criei este projeto com intúito de treinar os conceitos aprendidos no Foursys, no curso de .NET C#!</p>
