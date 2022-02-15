@@ -1,0 +1,36 @@
+﻿@model Produto
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<div class="text-center">
+    @if (@TempData["edit"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["edit"]
+    </div>
+}
+</div>
+
+<section class="mt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <form asp-controller="Produtos" asp-action="Editar">
+                    <input asp-for="ProdutoId"/>
+                    <partial name="_Form"/>
+                    <botao-enviar texto="Editar"></botao-enviar>
+                    <a asp-action="Home" class="btn btn-warning">Voltar</a>
+                </form>
+            </div>
+            <div class=" ml-5 mt-3 col-2">
+                <div>
+                    <img src="~/img/Skatista2.jpg" style="width: 400px"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+

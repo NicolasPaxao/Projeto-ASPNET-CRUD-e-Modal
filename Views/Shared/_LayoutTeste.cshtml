@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>@ViewData["Title"] - Protejo X</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" asp-controller="Produtos" asp-action="Index">Projeto X</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-controller="Produtos" asp-action="Index">
+                            Página Inicial
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Produtos</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" asp-controller="Produtos" asp-action="Cadastrar">Cadastrar</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-controller="Produtos" asp-action="Home">Lista de Itens</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Procure o que precise...">
+                    <button class="btn btn-md btn-secondary my-2 my-sm-0" type="submit">Pesquisar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <main role="main" class="pb-3">
+        <div>
+            @RenderBody()
+        </div>
+    </main>
+
+
+    <footer class="border-top footer text-muted bg-primary">
+        <div class="container">
+            &copy; 2022 - Projeto X
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

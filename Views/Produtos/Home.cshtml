@@ -1,0 +1,73 @@
+﻿@model List<Produto>
+@using ProjetoTreino0702.Models
+
+@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<div class="text-center">
+    @if (@TempData["delet"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["delet"]
+        </div>
+    }
+</div>
+
+<section class="mt-3">
+    <div class="container">
+        <h1 class="text-center font-italic">Produtos Cadastrados</h1>
+        <hr />
+        <div class="row">
+            @foreach (Produto p in Model)
+            {
+                <div class="col-lg-4 my-2 align-content-center">
+                    <div class="caixa box-shadow border p-2 bg-dark rounded-lg">
+                        <h3 class="h4 text-center text-light">Produto Id: @p.ProdutoId</h3>
+                        <hr style="background-color: white;" />
+                        <p class="text-light">Nome do Produto: @p.Nome</p>
+                        <p class="text-light">Fabricante: @p.Fabricante</p>
+                        <p class="text-light">Categoria: @p.Categorias</p>
+                        <p class="text-light">Tamanho: @p.Tamanhos</p>
+                        <p class="text-light">Preço: @p.Preco.ToString("C")</p>
+                        <hr style="background-color: white;" />
+                        <div class="row justify-content-center">
+                            <a asp-controller="Produtos" asp-action="Editar" asp-route-id="@p.ProdutoId" class="btn btn-sm btn-warning col-5 ml-1">Editar</a>
+                            <!-- Button trigger modal -->
+                        <button onclick="ProdutoId.value = @p.ProdutoId" type="button" class="btn btn-sm btn-danger col-5 ml-3 mr-1" data-toggle="modal" data-target="#exampleModal">
+                                Remover
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmação de exclusão cadastro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Você tem certeza que quer deletar este produto?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-info col" data-dismiss="modal">Não</button>
+                <form asp-action="Deletar" class="col">
+                    <input type="hidden" name="id" id="ProdutoId">
+                    <input type="submit" value="Remover" class="btn btn-sm btn-danger col">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
